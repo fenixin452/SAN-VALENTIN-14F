@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi San Valentín</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fbe8e8;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #ff80ab, #ff4081);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-sí {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .btn-no {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        .message {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .yes-message {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffeb3b;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>¿Quieres ser mi San Valentín?</h1>
+        <p>Este San Valentín sería increíble contigo a mi lado. 💖</p>
+        <div class="buttons">
+            <button class="btn btn-sí" onclick="mostrarMensaje('sí')">Sí</button>
+            <button class="btn btn-no" onclick="mostrarMensaje('no')">No</button>
+        </div>
+        <div id="mensaje" class="message">
+            <p id="mensaje-texto"></p>
+        </div>
+    </div>
+
+    <script>
+        function mostrarMensaje(opcion) {
+            const mensajeTexto = document.getElementById("mensaje-texto");
+            const mensaje = document.getElementById("mensaje");
+
+            if (opcion === 'sí') {
+                mensajeTexto.innerHTML = "¡Yay! ¡Gracias por decir que sí! 😍💖";
+                mensaje.classList.add("yes-message");
+            } else {
+                mensajeTexto.innerHTML = "😔";
+                mensaje.classList.remove("yes-message");
+            }
+
+            mensaje.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
